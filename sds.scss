@@ -1,0 +1,415 @@
+// @import '@2600hz/sds-core/sds-tools';
+@import './node_modules/@2600hz/sds-core/sds-tools';
+@import 'shadows';
+@import 'color-palette';
+@import './node_modules/@2600hz/sds-themes/sds_default-theme';
+
+//--------------
+// Converting em to px
+//--------------
+// $base-font-size-em: 1em;
+
+// @function em2px($target, $context: $base-font-size-em) {
+//   @if $target == 0 {
+//     @return 0;
+//   }
+//   @return ($target / 1em) * ($context / 1em) * 16 + 0px;
+// }
+
+.mainTitle {
+  margin-bottom: sds-spc(16);
+  @include sds-typeset(title-1, bold);
+}
+
+//--------------
+//Implemented to a CSS Token (Recomended way of using function)
+//--------------
+// --sds_theme-primary: sds-color(blue);
+
+//--------------
+//Implemented directly over a HTML tag
+//--------------
+.h1 {
+  color: sds-color(blue, 80);
+  @include sds-typeset(heading-1, semi);
+}
+
+.title {
+  @include sds-typeset(title-1);
+}
+
+.subtitle {
+  @include sds-typeset(title-2, bold);
+}
+
+.viewShadow {
+  // @include sds-shadow(3);
+}
+
+.h2 {
+  //Mobile view (Default value)
+  color: sds-color(gray, 120);
+
+  //Tablet view
+  @include sds-screen(xs) {
+    color: sds-color(green, 80);
+  }
+
+  //Tablet view
+  @include sds-screen(sm-mobile) {
+    color: sds-color(orange, 80);
+  }
+
+  //Tablet view
+  @include sds-screen(md-mobile) {
+    color: purple;
+  }
+
+  //Desktop view
+  @include sds-screen(lg-mobile) {
+    color: blue;
+  }
+}
+
+.text-gray {
+  color: sds-color(gray, 5);
+}
+
+.text-blue {
+  color: sds-color(blue, 10);
+}
+
+.text-green {
+  color: sds-color(green, 20);
+}
+
+.text-yellow {
+  color: sds-color(yellow, 30);
+}
+
+.text-red {
+  color: sds-color(red, 40);
+}
+
+.text-indigo {
+  color: sds-color(indigo);
+}
+
+.text-purple {
+  color: sds-color(purple, 60);
+}
+
+.text-teal {
+  color: sds-color(teal, 70);
+}
+
+.text-lime {
+  color: sds-color(lime, 80);
+}
+
+.text-orange {
+  color: sds-color(orange, 90);
+}
+
+.text-pink {
+  color: sds-color(pink, 100);
+}
+
+.font-type-mouse {
+  @include sds-typeset(mouse, base);
+}
+
+.font-type-sm-caps {
+  @include sds-typeset(sm-caps, base);
+  // letter-spacing: 0.04em;
+  letter-spacing: 0.64px;
+  // letter-spacing: em2px(0.04);
+}
+
+.font-type-body {
+  @include sds-typeset(body, base);
+}
+
+.font-type-body-lg {
+  @include sds-typeset(body-lg, semi);
+}
+
+.font-type-heading-2 {
+  @include sds-typeset(heading-2, semi);
+}
+
+.font-type-heading-1 {
+  @include sds-typeset(heading-1, semi);
+}
+
+.font-type-title-2 {
+  @include sds-typeset(title-2, bold);
+}
+
+.font-type-title-1 {
+  @include sds-typeset(title-1, bold);
+}
+
+/* offset-x | offset-y | blur-radius | spread-radius | color */
+// box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+%box-shared {
+  // border: 1px solid #ccc;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: sds-color(grey, 5);
+  // color: sds-color(green, 5);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.shadow-0 {
+  @extend %box-shared;
+  @include sds-shadow(0);
+}
+
+.shadow-1 {
+  @extend %box-shared;
+  @include sds-shadow(1);
+}
+
+.shadow-2 {
+  @extend %box-shared;
+  @include sds-shadow(2);
+}
+
+.shadow-3 {
+  @extend %box-shared;
+  @include sds-shadow(3);
+}
+
+.shadow-4 {
+  @extend %box-shared;
+  @include sds-shadow(4);
+}
+
+.shadow-5 {
+  @extend %box-shared;
+  @include sds-shadow(5);
+}
+
+.shadow-6 {
+  @extend %box-shared;
+  @include sds-shadow(6);
+}
+
+.screenMobileView {
+  //Desktop view (Default value)
+  color: red;
+
+  //Tablet view
+  @include sds-screen(md) {
+    color: purple;
+  }
+
+  //Mobile view
+  @include sds-screen(sm) {
+    color: blue;
+  }
+
+  //Mobile view (Default value)
+  color: red;
+
+  //Tablet view
+  @include sds-screen(md) {
+    color: purple;
+  }
+
+  //Desktop view
+  @include sds-screen(lg) {
+    color: blue;
+  }
+}
+
+%box-shared2 {
+  @extend %box-shared;
+  background-color: sds-color(purple, 5);
+}
+
+.spacing-4 {
+  @extend %box-shared;
+  margin: sds-spc(4) sds-spc(4);
+}
+
+.spacing-8 {
+  @extend %box-shared;
+  margin: sds-spc(4) sds-spc(8);
+}
+
+.spacing-12 {
+  @extend %box-shared;
+  margin: sds-spc(8) sds-spc(12);
+}
+
+.spacing-16 {
+  @extend %box-shared;
+  margin: sds-spc(12) sds-spc(16);
+}
+
+.spacing-24 {
+  @extend %box-shared;
+  margin: sds-spc(16) sds-spc(24);
+}
+
+.spacing-32 {
+  @extend %box-shared;
+  margin: sds-spc(24) sds-spc(32);
+}
+
+.spacing-40 {
+  @extend %box-shared;
+  margin: sds-spc(32) sds-spc(40);
+}
+
+.spacing-64 {
+  @extend %box-shared;
+  margin: sds-spc(40) sds-spc(64);
+}
+
+.spacing-64-2 {
+  @extend %box-shared2;
+  background-color: sds-color(green, 5);
+  margin: sds-spc(64);
+}
+
+.button {
+  margin: sds-spc(12) sds-spc(16);
+  padding: sds-spc(12);
+}
+
+.buttonView {
+  @extend %box-shared2;
+  flex-direction: row;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include sds-index(app-nav);
+
+  //--------------
+  //Compiled CSS of mixin
+  //--------------
+  // z-index: 100;
+}
+
+.parent {
+  // display: flex;
+  // flex-direction: row;
+  // justify-content: flex-end;
+  // align-items: flex-end;
+
+  // @include sds-flex('justify-content', 'align-items', 'flex-direction');
+
+  // @include sds-flex(center, center);
+  @include sds-flex(flex-end, flex-end, row);
+
+  padding: sds-spc(32);
+  height: 150px;
+  border: 1px solid sds-color(blue, 30);
+}
+
+.circle {
+  @extend %box-shared2;
+  // display: initial;
+  flex: none;
+  background-color: sds-color(blue, 10);
+  padding: 5px;
+  margin: 5px;
+}
+
+// NOT SUPPORTED
+.grid-parent {
+  // @include sds-grid(4);
+  // @include sds-grid(4, sds-spc(12));
+  // padding: sds-spc(32);
+  height: 250px;
+  border: 2px solid sds-color(yellow, 60);
+
+  // .column2 {
+  //   border: 1px solid darkred;
+  //   @extend %box-shared2;
+  //   display: initial;
+  //   flex: none;
+  //   background-color: sds-color(purple, 10);
+  //   padding: 5px;
+  //   margin: 5px;
+  // }
+}
+
+// .column {
+//   @extend %box-shared2;
+//   display: initial;
+//   flex: none;
+//   background-color: sds-color(purple, 10);
+//   padding: 5px;
+//   margin: 5px;
+// }
+.column {
+  @extend %box-shared2;
+  border: 1px solid darkred;
+  // display: initial;
+  flex: none;
+  background-color: sds-color(purple, 10);
+  padding: 5px;
+  margin: 5px;
+}
+
+// :root {
+//   --sds_theme_color_neutral: #{sds-color(grey)};
+//   --sds_theme_color_blue: #{sds-color(blue)};
+
+//   .text-variable {
+//     // color: var(--sds_theme_color_neutral);
+//     color: var(--sds_theme_color_blue);
+//     // color: sds-color(purple, 40);
+//   }
+// }
+
+// :root {
+//   --primary: #03a87c;
+// }
+
+.text-variable {
+  // color: var(--sds_theme_color_neutral);
+  // color: $sds_theme_color_blue;
+  // color: $sds_theme_color_teal_interactive;
+  // color: sds-color(purple, 40);
+  // color: var(--primary);
+
+  // Get value from nested maps
+  // color: map-get(map-get($themes, 'light'), 'color-background');
+  // color: map-get(map-get($themes, 'dark'), 'color-background');
+  color: map-get(
+    map-get($themes, 'light'),
+    '--sds_theme_color_green_interactive'
+  );
+}
+.text-variable-2 {
+  color: map-get(map-get($themes, 'dark'), '--sds_theme_color_yellow_interactive');
+}
+// .text-variable-3 {
+//   box-shadow: map-get(map-get($themes, 'light'), '--sds_theme_focus_shadow');
+// }
+// .text-variable-4 {
+//   box-shadow: map-get(map-get($themes, 'dark'), '--sds_theme_focus_shadow');
+// }
+
+// $prefix: pf;
+
+// :root {
+//   --#{$prefix}-primary-color: #000000;
+//   // this will compile to: --pf-primary-color: #000000;
+// }
+
+// .btn-example {
+//   background-color: var(--#{$prefix}-primary-color);
+// }

@@ -1,0 +1,13 @@
+@import 'dark-colors';
+@import 'light-colors';
+
+$colors: (
+  tronLightBlue: #a1fefe,
+  tronDarkBlue: #004242,
+  white: #ffffff,
+  black: #000000,
+  // Light theme colors definition
+  light: $light_colors,
+  // Dark theme colors definition
+  dark: $dark_colors,
+);

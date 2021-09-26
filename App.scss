@@ -1,0 +1,95 @@
+@import './node_modules/@2600hz/sds-core/sds-tools';
+$background-color: sds-color(teal, 5);
+$primary-color: #d3d3d3;
+$font-large: 20px;
+
+.container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  background-color: $background-color;
+  padding: 20px;
+}
+
+.scrollView {
+  background-color: sds-color(teal, 10);
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.text {
+  font-weight: 700;
+  text-align: center;
+  font-size: $font-large;
+  color: $primary-color;
+  background-color: $background-color;
+}
+
+$light: #fff;
+$purple: purple;
+$blue-violet: blueviolet;
+$box-dimension: 100;
+
+%box-shared {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  // // box-shadow: 0 16px 48px rgba(0, 0, 0, 0.32);
+  // box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: $box-dimension;
+  width: $box-dimension;
+  margin-bottom: 100px;
+}
+
+.boxWhite {
+  @extend %box-shared;
+  background-color: $light;
+}
+
+.boxPurple {
+  @extend %box-shared;
+  background-color: $purple;
+}
+
+.boxBlueViolet {
+  @extend %box-shared;
+  background-color: $blue-violet;
+}
+
+$box-dimension-lg: 250;
+
+%flex-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+%box-shared {
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.25);
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: $box-dimension-lg;
+  width: $box-dimension-lg;
+  margin-bottom: 100px;
+  border-radius: 10px;
+}
+
+.boxWhite {
+  @extend %flex-box;
+  @extend %box-shared;
+  background-color: $light;
+}
+
+.boxInside {
+  @extend %box-shared;
+  background-color: lightblue;
+  height: ($box-dimension-lg/2);
+  width: ($box-dimension-lg/2);
+}
+
+button {
+  padding: 8px 12px;
+  color: aqua;
+}

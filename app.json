@@ -3,9 +3,11 @@
     "name": "rn-sass-app",
     "slug": "rn-sass-app",
     "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
+    "assetBundlePatterns": ["**/*"],
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": ["js", "jsx", "scss", "sass"]
+    }
   },
   "name": "rn-sass-app"
 }

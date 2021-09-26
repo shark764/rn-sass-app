@@ -1,0 +1,14 @@
+@import './functions';
+
+$light: (
+  borderDark: color(tronDarkBlue),
+  borderLight: color(tronLightBlue),
+  textDark: color(black),
+  textLight: color(white),
+  backgroundDark: color(tronDarkBlue),
+  backgroundLight: color(tronLightBlue),
+  exampleLight:
+    map-get(map-get($colors, 'light'), '--sds_theme_color_red_interactive'),
+  exampleLight2:
+    map-get(map-get($colors, 'light'), '--sds_theme_color_pink_interactive'),
+);

@@ -4,7 +4,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
-    "start": "react-native start"
+    "start": "react-native start",
+    "expo:start": "BROWSER=none expo start"
   },
   "dependencies": {
     "expo": "~42.0.1",
@@ -21,7 +22,11 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@2600hz/sds-core": "^1.0.9",
+    "@2600hz/sds-themes": "^1.0.6",
+    "@babel/core": "^7.9.0",
+    "node-sass": "^6.0.1",
+    "react-native-sass-transformer": "^1.4.0"
   },
   "private": true
 }

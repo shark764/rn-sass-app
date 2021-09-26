@@ -1,0 +1,26 @@
+@import './node_modules/@2600hz/sds-core/sds-tools';
+@import 'shadows';
+
+@import 'theming/mixins';
+
+$themes: ();
+
+@import 'theming/light';
+@include generateThemeJSExports(light, $light);
+
+@import 'theming/dark';
+@include generateThemeJSExports(dark, $dark);
+
+@import 'exa1';
+
+.sds-light-example {
+  background-color: map-get($light, 'backgroundLight');
+  color: map-get($light, 'exampleLight');
+  // .level2 {
+  //   color: black;
+  // }
+}
+.sds-dark-example {
+  background-color: map-get($dark, 'backgroundLight');
+  color: map-get($dark, 'exampleDark');
+}
