@@ -260,3 +260,17 @@
 body[data-theme='Dark'] {
   @include theme-content();
 }
+
+@mixin theme-content() {
+  // ------------------------------
+  // Base Colors
+  // ------------------------------
+  --sds_theme_color_neutral: #{sds-color(grey, 40)};
+  --sds_theme_color_neutral_interactive: #{sds-color(grey, 30)};
+  --sds_theme_color_neutral_tint_1: #{sds-color(grey, 100)};
+  --sds_theme_color_neutral_tint_2: #{sds-color(grey, 70)};
+}
+
+body[data-theme='Dark'] {
+  @include theme-content();
+}
