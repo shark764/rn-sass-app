@@ -200,16 +200,21 @@
 .shadow-4 {
   @extend %box-shared;
   @include sds-shadow(4);
+  // elevation: 20;
+  // shadow-color: blue;
 }
 
 .shadow-5 {
   @extend %box-shared;
   @include sds-shadow(5);
+  // elevation: 16;
 }
 
 .shadow-6 {
   @extend %box-shared;
   @include sds-shadow(6);
+  // elevation: 24;
+  // shadow-color: green;
 }
 
 .screenMobileView {
@@ -405,12 +410,14 @@
     '--sds_theme_color_green_interactive'
   );
 }
+
 .text-variable-2 {
   color: map-get(
     map-get($themes, 'dark'),
     '--sds_theme_color_yellow_interactive'
   );
 }
+
 // .text-variable-3 {
 //   box-shadow: map-get(map-get($themes, 'light'), '--sds_theme_focus_shadow');
 // }

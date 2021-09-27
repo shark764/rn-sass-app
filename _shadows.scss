@@ -10,14 +10,27 @@ $sds_shadows: (
   6: 0 16px 48px rgba(255, 0, 120, 0.32),
 ) !default;
 
+// Android only
+$sds_elevations: (
+  0: 0,
+  1: 4,
+  2: 16,
+  3: 24,
+  4: 4,
+  5: 16,
+  6: 24,
+);
+
 // $shadow - : The desired value from the `$sds_depths()` map
 
 @mixin sds-shadow($shadow) {
   @if not map-has-key($sds_shadows, $shadow) {
-    @error 'The shadow: `#{$shadow}` is not a valid shadow. Available depths are:' map-keys($sds_shadows);
+    @error 'The shadow: `#{$shadow}` is not a valid shadow. Available depths are:'map-keys($sds_shadows);
   }
 
   $selected-sds_shadow: map-get($sds_shadows, $shadow);
+  $selected-sds_elevation: map-get($sds_elevations, $shadow);
 
   box-shadow: $selected-sds_shadow;
+  elevation: $selected-sds_elevation;
 }

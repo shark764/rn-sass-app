@@ -225,7 +225,10 @@ export default function App() {
         </View>
         {[0, 1, 2, 3, 4, 5, 6].map((sh) => {
           return (
-            <View style={Sdsstyles[`shadow-${sh}`]} key={`shadow-${sh}`}>
+            <View
+              style={[Sdsstyles[`shadow-${sh}`] /*{ elevation: sh + 10 }*/]}
+              key={`shadow-${sh}`}
+            >
               <Text style={Sdsstyles[`text-teal`]}>
                 Box in shadow in ".shadow-{sh}"
               </Text>
