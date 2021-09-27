@@ -11,6 +11,8 @@ $themes: ();
 @import 'theming/dark';
 @include generateThemeJSExports(dark, $dark);
 
+$sdsExampleVariable: rgb(137, 211, 62);
+
 @import 'exa1';
 
 .sds-light-example {
@@ -23,4 +25,8 @@ $themes: ();
 .sds-dark-example {
   background-color: map-get($dark, '--color_primary_interactive');
   color: map-get($dark, '--control_background');
+}
+
+:export {
+  --sds-example-variable-color: #{$sdsExampleVariable};
 }

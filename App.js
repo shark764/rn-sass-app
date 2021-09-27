@@ -1,6 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { Button, SafeAreaView, ScrollView, Text, View } from 'react-native';
+import {
+  Button,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  Text,
+  View,
+} from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+
 import Appstyles from './App.scss';
 import Sdsstyles from './sds.scss';
 import themeColors from './colors.module.scss';
@@ -21,19 +30,32 @@ const getTheme = (themeMode = 'light') => {
   }, {});
 };
 
+const themeModes = ['light', 'dark'];
+
 export default function App() {
   // console.log({ Appstyles });
-  // console.log({ Sdsstyles });
-  // console.log({ themeColors });
+  console.log({ Sdsstyles });
+  console.log({ themeColors });
   console.log(
     'btn-example',
     // Sdsstyles['btn-example'],
-    Sdsstyles['text-variable']
+    Sdsstyles['text-variable'],
+    themeColors['--sds-example-variable-color'],
+    themeColors['themes']
   );
 
   const [themeMode, setThemeMode] = React.useState('light');
   const [theme, setTheme] = React.useState({});
   const [spacingValues, setSpacingValues] = React.useState(spacingMap);
+
+  const [timesPressed, setTimesPressed] = React.useState(0);
+
+  let textLog = '';
+  if (timesPressed > 1) {
+    textLog = timesPressed + 'x onPress';
+  } else if (timesPressed > 0) {
+    textLog = 'onPress';
+  }
 
   React.useEffect(() => {
     setTheme(getTheme(themeMode));
@@ -43,11 +65,85 @@ export default function App() {
     // };
   }, [themeMode]);
 
-  console.log({ themeColors, theme });
+  // console.log({ themeColors, theme });
 
   return (
     <SafeAreaView style={Appstyles.container}>
       <ScrollView style={Appstyles.scrollView}>
+        <View style={[Sdsstyles.viewShadow, Sdsstyles['spacing-32']]}>
+          <Pressable
+            onPress={() => {
+              setTimesPressed((current) => current + 1);
+            }}
+            style={({ pressed }) => [
+              {
+                backgroundColor: pressed ? 'red' : 'white',
+              },
+            ]}
+          >
+            {({ pressed }) => <Text>{pressed ? 'Pressed!' : 'Press Me'}</Text>}
+          </Pressable>
+          <View>
+            <Text testID="pressable_press_console">{textLog}</Text>
+          </View>
+        </View>
+        <View
+          style={[
+            // Sdsstyles.viewShadow,
+            // Sdsstyles['spacing-32'],
+            {
+              // backgroundColor: theme['--background'],
+              borderColor: theme['--border'],
+            },
+          ]}
+        >
+          <Picker
+            selectedValue={themeMode}
+            onValueChange={(itemValue, itemIndex) => setThemeMode(itemValue)}
+            style={{
+              backgroundColor: theme['--background'],
+              borderColor: theme['--border'],
+              color: theme['--color_primary'],
+            }}
+          >
+            {themeModes.map((tMode) => {
+              return (
+                <Picker.Item
+                  style={{ color: theme['--color_primary'] }}
+                  key={tMode}
+                  label={tMode}
+                  value={tMode}
+                />
+              );
+            })}
+          </Picker>
+        </View>
+
+        <View
+          style={[
+            Sdsstyles['spacing-40'],
+            themeColors[`sds-${themeMode}-example`],
+            {
+              backgroundColor: theme['--background'],
+              borderColor: theme['--border'],
+            },
+          ]}
+        >
+          <Text
+            style={[
+              // themeColors[`sds-${themeMode}-example`],
+              { color: theme['--color_primary'] },
+            ]}
+          >
+            Hey I'm in {themeMode} mode!
+          </Text>
+        </View>
+
+        <View style={Sdsstyles.buttonView}>
+          <Button onPress={() => setThemeMode('light')} title="Light" />
+          <Button onPress={() => setThemeMode('dark')} title="Dark" />
+        </View>
+
         {/* <Text>Open up App.js to start working on your app!</Text>
       <View style={Appstyles.container}>
         <View style={Appstyles.boxWhite}>
@@ -152,31 +248,6 @@ export default function App() {
             onPress={() => setSpacingValues(() => [...spacingMap].reverse())}
             title="Reverse"
           />
-        </View>
-
-        <View
-          style={[
-            Sdsstyles['spacing-40'],
-            themeColors[`sds-${themeMode}-example`],
-            {
-              backgroundColor: theme['--background'],
-              borderColor: theme['--border'],
-            },
-          ]}
-        >
-          <Text
-            style={[
-              // themeColors[`sds-${themeMode}-example`],
-              { color: theme['--color_primary'] },
-            ]}
-          >
-            Hey I'm in {themeMode} mode!
-          </Text>
-        </View>
-
-        <View style={Sdsstyles.buttonView}>
-          <Button onPress={() => setThemeMode('light')} title="Light" />
-          <Button onPress={() => setThemeMode('dark')} title="Dark" />
         </View>
 
         <View style={Sdsstyles[`navbar`]}>

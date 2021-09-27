@@ -165,24 +165,36 @@
   border-radius: 10px;
 }
 
+// "shadowColor": "#2d40c2",
+// "shadowOffset": Object {
+//   "height": 16,
+//   "width": 0,
+// },
+// "shadowOpacity": 1,
+// "shadowRadius": 48,
+
 .shadow-0 {
   @extend %box-shared;
   @include sds-shadow(0);
+  // elevation: 0;
 }
 
 .shadow-1 {
   @extend %box-shared;
   @include sds-shadow(1);
+  // elevation: 5;
 }
 
 .shadow-2 {
   @extend %box-shared;
   @include sds-shadow(2);
+  // elevation: 16;
 }
 
 .shadow-3 {
   @extend %box-shared;
   @include sds-shadow(3);
+  // elevation: 24;
 }
 
 .shadow-4 {
@@ -394,7 +406,10 @@
   );
 }
 .text-variable-2 {
-  color: map-get(map-get($themes, 'dark'), '--sds_theme_color_yellow_interactive');
+  color: map-get(
+    map-get($themes, 'dark'),
+    '--sds_theme_color_yellow_interactive'
+  );
 }
 // .text-variable-3 {
 //   box-shadow: map-get(map-get($themes, 'light'), '--sds_theme_focus_shadow');
