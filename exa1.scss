@@ -1,5 +1,5 @@
 .sds-my-own-example {
-  background-color: map-get($light, 'exampleLight');
-  color: map-get($dark, 'exampleDark');
-  box-shadow: 0 16px 48px map-get($light, 'exampleLight2');
+  background-color: map-get($light, '--color_orange_tint_2');
+  color: map-get($dark, '--color_yellow_interactive');
+  box-shadow: 0 16px 48px map-get($light, '--color_indigo_interactive');
 }

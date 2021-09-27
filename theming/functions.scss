@@ -1,6 +1,12 @@
-@import './color-definitions';
+@import 'light-definitions';
+@import 'dark-definitions';
 
-// gets a color value from color map, defined in colorDefinitions
-@function color($colorName) {
-  @return map-get($colors, $colorName);
+// gets a value from theme definition map, defined in light-definitions
+@function light-get($keyName) {
+  @return map-get($light_definitions, $keyName);
+}
+
+// gets a value from theme definition map, defined in dark-definitions
+@function dark-get($keyName) {
+  @return map-get($dark_definitions, $keyName);
 }

@@ -8,7 +8,9 @@
     themes: $themes;
 
     @each $key, $value in $newThemeMap {
-      sds_theme_#{$themeName}_#{$key}: $value;
+      // Assuming all keys have prefix "--"
+      // Example: "--color_primary_interactive"
+      sds_theme_#{$themeName}#{$key}: $value;
     }
   }
 }

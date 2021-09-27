@@ -14,13 +14,13 @@ $themes: ();
 @import 'exa1';
 
 .sds-light-example {
-  background-color: map-get($light, 'backgroundLight');
-  color: map-get($light, 'exampleLight');
+  background-color: map-get($light, '--control_icon');
+  color: map-get($light, '--button_ghost_interactive_background');
   // .level2 {
   //   color: black;
   // }
 }
 .sds-dark-example {
-  background-color: map-get($dark, 'backgroundLight');
-  color: map-get($dark, 'exampleDark');
+  background-color: map-get($dark, '--color_primary_interactive');
+  color: map-get($dark, '--control_background');
 }

@@ -1,91 +1,187 @@
-$light_colors: (
+$light_base: (
   // ------------------------------
   // Base Colors
   // ------------------------------
-  --sds_theme_color_neutral: #{sds-color(grey)},
-  --sds_theme_color_neutral_interactive: #{sds-color(grey, 60)},
-  --sds_theme_color_neutral_tint_1: #{sds-color(grey, 05)},
-  --sds_theme_color_neutral_tint_2: #{sds-color(grey, 20)},
-  --sds_theme_color_blue: #{sds-color(blue)},
-  --sds_theme_color_blue_interactive: #{sds-color(blue, 60)},
-  --sds_theme_color_blue_tint_1: #{sds-color(blue, 05)},
-  --sds_theme_color_blue_tint_2: #{sds-color(blue, 10)},
-  --sds_theme_color_green: #{sds-color(green)},
-  --sds_theme_color_green_interactive: #{sds-color(green, 60)},
-  --sds_theme_color_green_tint_1: #{sds-color(green, 05)},
-  --sds_theme_color_green_tint_2: #{sds-color(green, 10)},
-  --sds_theme_color_yellow: #{sds-color(yellow)},
-  --sds_theme_color_yellow_interactive: #{sds-color(yellow, 60)},
-  --sds_theme_color_yellow_tint_1: #{sds-color(yellow, 05)},
-  --sds_theme_color_yellow_tint_2: #{sds-color(yellow, 10)},
-  --sds_theme_color_red: #{sds-color(red)},
-  --sds_theme_color_red_interactive: #{sds-color(red, 60)},
-  --sds_theme_color_red_tint_1: #{sds-color(red, 05)},
-  --sds_theme_color_red_tint_2: #{sds-color(red, 10)},
-  --sds_theme_color_indigo: #{sds-color(indigo)},
-  --sds_theme_color_indigo_interactive: #{sds-color(indigo, 60)},
-  --sds_theme_color_indigo_tint_1: #{sds-color(indigo, 05)},
-  --sds_theme_color_indigo_tint_2: #{sds-color(indigo, 10)},
-  --sds_theme_color_purple: #{sds-color(purple)},
-  --sds_theme_color_purple_interactive: #{sds-color(purple, 60)},
-  --sds_theme_color_purple_tint_1: #{sds-color(purple, 05)},
-  --sds_theme_color_purple_tint_2: #{sds-color(purple, 10)},
-  --sds_theme_color_lime: #{sds-color(lime)},
-  --sds_theme_color_lime_interactive: #{sds-color(lime, 60)},
-  --sds_theme_color_lime_tint_1: #{sds-color(lime, 05)},
-  --sds_theme_color_lime_tint_2: #{sds-color(lime, 10)},
-  --sds_theme_color_teal: #{sds-color(teal)},
-  --sds_theme_color_teal_interactive: #{sds-color(teal, 60)},
-  --sds_theme_color_teal_tint_1: #{sds-color(teal, 05)},
-  --sds_theme_color_teal_tint_2: #{sds-color(teal, 10)},
-  --sds_theme_color_orange: #{sds-color(orange)},
-  --sds_theme_color_orange_interactive: #{sds-color(orange, 60)},
-  --sds_theme_color_orange_tint_1: #{sds-color(orange, 05)},
-  --sds_theme_color_orange_tint_2: #{sds-color(orange, 10)},
-  --sds_theme_color_pink: #{sds-color(pink)},
-  --sds_theme_color_pink_interactive: #{sds-color(pink, 60)},
-  --sds_theme_color_pink_tint_1: #{sds-color(pink, 05)},
-  --sds_theme_color_pink_tint_2: #{sds-color(pink, 10)},
+  --color_neutral: #{sds-color(grey)},
+  --color_neutral_interactive: #{sds-color(grey, 60)},
+  --color_neutral_tint_1: #{sds-color(grey, 05)},
+  --color_neutral_tint_2: #{sds-color(grey, 20)},
+  --color_blue: #{sds-color(blue)},
+  --color_blue_interactive: #{sds-color(blue, 60)},
+  --color_blue_tint_1: #{sds-color(blue, 05)},
+  --color_blue_tint_2: #{sds-color(blue, 10)},
+  --color_green: #{sds-color(green)},
+  --color_green_interactive: #{sds-color(green, 60)},
+  --color_green_tint_1: #{sds-color(green, 05)},
+  --color_green_tint_2: #{sds-color(green, 10)},
+  --color_yellow: #{sds-color(yellow)},
+  --color_yellow_interactive: #{sds-color(yellow, 60)},
+  --color_yellow_tint_1: #{sds-color(yellow, 05)},
+  --color_yellow_tint_2: #{sds-color(yellow, 10)},
+  --color_red: #{sds-color(red)},
+  --color_red_interactive: #{sds-color(red, 60)},
+  --color_red_tint_1: #{sds-color(red, 05)},
+  --color_red_tint_2: #{sds-color(red, 10)},
+  --color_indigo: #{sds-color(indigo)},
+  --color_indigo_interactive: #{sds-color(indigo, 60)},
+  --color_indigo_tint_1: #{sds-color(indigo, 05)},
+  --color_indigo_tint_2: #{sds-color(indigo, 10)},
+  --color_purple: #{sds-color(purple)},
+  --color_purple_interactive: #{sds-color(purple, 60)},
+  --color_purple_tint_1: #{sds-color(purple, 05)},
+  --color_purple_tint_2: #{sds-color(purple, 10)},
+  --color_lime: #{sds-color(lime)},
+  --color_lime_interactive: #{sds-color(lime, 60)},
+  --color_lime_tint_1: #{sds-color(lime, 05)},
+  --color_lime_tint_2: #{sds-color(lime, 10)},
+  --color_teal: #{sds-color(teal)},
+  --color_teal_interactive: #{sds-color(teal, 60)},
+  --color_teal_tint_1: #{sds-color(teal, 05)},
+  --color_teal_tint_2: #{sds-color(teal, 10)},
+  --color_orange: #{sds-color(orange)},
+  --color_orange_interactive: #{sds-color(orange, 60)},
+  --color_orange_tint_1: #{sds-color(orange, 05)},
+  --color_orange_tint_2: #{sds-color(orange, 10)},
+  --color_pink: #{sds-color(pink)},
+  --color_pink_interactive: #{sds-color(pink, 60)},
+  --color_pink_tint_1: #{sds-color(pink, 05)},
+  --color_pink_tint_2: #{sds-color(pink, 10)},
   // ------------------------------
   // Semantic Colors
   // ------------------------------
   // ------------------------------
   // Backgrounds
   // ------------------------------
-  --sds_theme_background: #{sds-color(grey, 05)},
-  --sds_theme_background_high: #{sds-color(white)},
-  --sds_theme_background_low: #{sds-color(grey, 10)},
-  --sds_theme_background_contrast: #{sds-color(grey, 100)},
-  --sds_theme_background_contrast_2: #{sds-color(grey, 90)},
+  --background: #{sds-color(grey, 05)},
+  --background_high: #{sds-color(white)},
+  --background_low: #{sds-color(grey, 10)},
+  --background_contrast: #{sds-color(grey, 100)},
+  --background_contrast_2: #{sds-color(grey, 90)},
   // ------------------------------
   // Text
   // ------------------------------
-  --sds_theme_text: #{sds-color(grey, 100)},
-  --sds_theme_text_muted: #{sds-color(grey, 70)},
-  --sds_theme_text_contrast: #{sds-color(white)},
-  --sds_theme_text_contrast_muted: #{sds-color(grey, 40)},
+  --text: #{sds-color(grey, 100)},
+  --text_muted: #{sds-color(grey, 70)},
+  --text_contrast: #{sds-color(white)},
+  --text_contrast_muted: #{sds-color(grey, 40)},
   // ------------------------------
   // Borders
   // ------------------------------
-  --sds_theme_border: #{sds-color(grey, 30)},
-  --sds_theme_border_contrast: #{sds-color(grey, 60)},
+  --border: #{sds-color(grey, 30)},
+  --border_contrast: #{sds-color(grey, 60)},
   // ------------------------------
   // Icons
   // ------------------------------
-  --sds_theme_icon: #{sds-color(grey, 70)},
-  --sds_theme_icon_muted: #{sds-color(grey, 40)},
-  --sds_theme_icon_dark: #{sds-color(grey, 100)},
-  --sds_theme_icon_light: #{sds-color(white)},
+  --icon: #{sds-color(grey, 70)},
+  --icon_muted: #{sds-color(grey, 40)},
+  --icon_dark: #{sds-color(grey, 100)},
+  --icon_light: #{sds-color(white)},
   // ------------------------------
   // Buttons
   // ------------------------------
-  --sds_theme_button_ghost_background: #ffffff00,
+  --button_ghost_background: #ffffff00,
   // ------------------------------
   // Controls
   // ------------------------------
   // ------------------------------
   // Global UI
   // ------------------------------
-  --sds_theme_border_radius: 0.5rem,
-  --sds_theme_disabled_opacity: 48%
+  --border_radius: 0.5rem,
+  --disabled_opacity: 48%
+);
+
+$light_base: map-merge(
+  $light_base,
+  (
+    // ------------------------------
+    // Semantic Colors
+    // ------------------------------
+    --color_primary: map-get($light_base, --color_blue),
+    --color_primary_interactive: map-get($light_base, --color_blue_interactive),
+    --color_danger: map-get($light_base, --color_red),
+    --color_danger_interactive: map-get($light_base, --color_red_interactive),
+    // ------------------------------
+    // Backgrounds
+    // ------------------------------
+    --background_gradient:
+      linear-gradient(
+        to bottom,
+        map-get($light_base, --background_high) 0%,
+        map-get($light_base, --background) 100%
+      ),
+    // ------------------------------
+    // Buttons
+    // ------------------------------
+    --button_text: map-get($light_base, --text),
+    --button_primary_border: map-get($light_base, --color_primary_interactive),
+    --button_primary_text: map-get($light_base, --text_contrast),
+    --button_primary_icon: map-get($light_base, --icon_light),
+    --button_danger_border: map-get($light_base, --color_danger_interactive),
+    --button_danger_text: map-get($light_base, --text_contrast),
+    --button_danger_icon: map-get($light_base, --icon_light),
+    // ------------------------------
+    // Controls
+    // ------------------------------
+    --control_background: map-get($light_base, --background_high)
+  )
+);
+
+$light_definitions: map-merge(
+  $light_base,
+  (
+    // ------------------------------
+    // Base Colors
+    // ------------------------------
+    // ------------------------------
+    // Semantic Colors
+    // ------------------------------
+    --color_primary_tint_2: map-get($light_base, --color_blue_tint_2),
+    --color_danger_tint_1: map-get($light_base, --color_red_tint_1),
+    // ------------------------------
+    // Backgrounds
+    // ------------------------------
+    // ------------------------------
+    // Text
+    // ------------------------------
+    // ------------------------------
+    // Buttons
+    // ------------------------------
+    --button_background: map-get($light_base, --background_gradient),
+    --button_border: map-get($light_base, --border),
+    --button_icon: map-get($light_base, --icon),
+    --button_interactive_icon: map-get($light_base, --icon_dark),
+    --button_primary_interactive_background:
+      map-get($light_base, --color_primary_interactive),
+    --button_primary_interactive_border:
+      map-get($light_base, --button_primary_border),
+    --button_primary_interactive_text:
+      map-get($light_base, --button_primary_text),
+    --button_primary_interactive_icon:
+      map-get($light_base, --button_primary_icon),
+    --button_ghost_text: map-get($light_base, --button_text),
+    --button_danger_interactive_background:
+      map-get($light_base, --color_danger_interactive),
+    --button_danger_interactive_border:
+      map-get($light_base, --button_danger_border),
+    --button_danger_interactive_text: map-get($light_base, --button_danger_text),
+    --button_danger_interactive_icon: map-get($light_base, --button_danger_icon),
+    // ------------------------------
+    // Controls
+    // ------------------------------
+    --control_border: map-get($light_base, --border),
+    --control_text: map-get($light_base, --text),
+    --control_icon: map-get($light_base, --icon_muted),
+    --control_placeholder: map-get($light_base, --text_muted),
+    --control_hover_background: map-get($light_base, --control_background),
+    --control_hover_border: map-get($light_base, --color_neutral),
+    // TODO:
+    // This one references to itself
+    // need to get a proper base color
+    --control_disabled_background:
+      map-get($light_base, --control_disabled_background),
+    // ------------------------------
+    // Global UI
+    // ------------------------------
+    --focus_highlight: map-get($light_base, --color_primary)
+  )
 );

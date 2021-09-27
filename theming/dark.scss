@@ -1,7 +1,8 @@
 @import 'dark-definitions';
+@import 'functions';
 
 $dark: map-merge(
-  $dark-definitions,
+  $dark_definitions,
   (
     // ------------------------------
     // Base Colors
@@ -9,54 +10,25 @@ $dark: map-merge(
     // ------------------------------
     // Semantic Colors
     // ------------------------------
-    --sds_theme_color_primary:
-      map-get($dark-definitions, --sds_theme_color_blue),
-    --sds_theme_color_primary_interactive:
-      map-get($dark-definitions, --sds_theme_color_blue_interactive),
-    --sds_theme_color_primary_tint_1:
-      map-get($dark-definitions, --sds_theme_color_blue_tint_1),
-    --sds_theme_color_primary_tint_2:
-      map-get($dark-definitions, --sds_theme_color_blue_tint_2),
-    --sds_theme_color_success:
-      map-get($dark-definitions, --sds_theme_color_green),
-    --sds_theme_color_success_interactive:
-      map-get($dark-definitions, --sds_theme_color_green_interactive),
-    --sds_theme_color_success_tint_1:
-      map-get($dark-definitions, --sds_theme_color_green_tint_1),
-    --sds_theme_color_success_tint_2:
-      map-get($dark-definitions, --sds_theme_color_green_tint_2),
-    --sds_theme_color_warning:
-      map-get($dark-definitions, --sds_theme_color_yellow),
-    --sds_theme_color_warning_interactive:
-      map-get($dark-definitions, --sds_theme_color_yellow_interactive),
-    --sds_theme_color_warning_tint_1:
-      map-get($dark-definitions, --sds_theme_color_yellow_tint_1),
-    --sds_theme_color_warning_tint_2:
-      map-get($dark-definitions, --sds_theme_color_yellow_tint_2),
-    --sds_theme_color_danger: map-get($dark-definitions, --sds_theme_color_red),
-    --sds_theme_color_danger_interactive:
-      map-get($dark-definitions, --sds_theme_color_red_interactive),
-    --sds_theme_color_danger_tint_1:
-      map-get($dark-definitions, --sds_theme_color_red_tint_1),
-    --sds_theme_color_danger_tint_2:
-      map-get($dark-definitions, --sds_theme_color_red_tint_2),
+    --color_primary_tint_1: dark-get(--color_blue_tint_1),
+    --color_success: dark-get(--color_green),
+    --color_success_interactive: dark-get(--color_green_interactive),
+    --color_success_tint_1: dark-get(--color_green_tint_1),
+    --color_success_tint_2: dark-get(--color_green_tint_2),
+    --color_warning: dark-get(--color_yellow),
+    --color_warning_interactive: dark-get(--color_yellow_interactive),
+    --color_warning_tint_1: dark-get(--color_yellow_tint_1),
+    --color_warning_tint_2: dark-get(--color_yellow_tint_2),
+    --color_danger_tint_2: dark-get(--color_red_tint_2),
     // ------------------------------
     // Backgrounds
     // ------------------------------
-    --sds_theme_background_gradient:
-      linear-gradient(
-        to bottom,
-        map-get($dark-definitions, --sds_theme_background_high) 0%,
-        map-get($dark-definitions, --sds_theme_background) 100%
-      ),
     // ------------------------------
     // Text
     // ------------------------------
-    --sds_theme_text_contrast_muted:
-      map-get($dark-definitions, --sds_theme_color_neutral_tint_2),
-    --sds_theme_text_highlighted: map-get($dark-definitions, --sds_theme_text),
-    --sds_theme_text_highlighted_background:
-      map-get($dark-definitions, --sds_theme_color_primary_tint_2),
+    --text_contrast_muted: dark-get(--color_neutral_tint_2),
+    --text_highlighted: dark-get(--text),
+    --text_highlighted_background: dark-get(--color_primary_tint_2),
     // ------------------------------
     // Borders
     // ------------------------------
@@ -66,139 +38,59 @@ $dark: map-merge(
     // ------------------------------
     // Buttons
     // ------------------------------
-    --sds_theme_button_background:
-      map-get($dark-definitions, --sds_theme_background_gradient),
-    --sds_theme_button_border: map-get($dark-definitions, --sds_theme_border),
-    --sds_theme_button_text: map-get($dark-definitions, --sds_theme_text),
-    --sds_theme_button_icon: map-get($dark-definitions, --sds_theme_icon),
-    --sds_theme_button_interactive_background:
-      map-get($dark-definitions, --sds_theme_background_low),
-    --sds_theme_button_interactive_text:
-      map-get($dark-definitions, --sds_theme_button_text),
-    --sds_theme_button_interactive_icon:
-      map-get($dark-definitions, --sds_theme_icon_light),
-    --sds_theme_button_primary_background:
-      map-get($dark-definitions, --sds_theme_color_primary),
-    --sds_theme_button_primary_border:
-      map-get($dark-definitions, --sds_theme_color_primary),
-    --sds_theme_button_primary_text:
-      map-get($dark-definitions, --sds_theme_text_contrast),
-    --sds_theme_button_primary_icon:
-      map-get($dark-definitions, --sds_theme_icon_dark),
-    --sds_theme_button_primary_interactive_background:
-      map-get($dark-definitions, --sds_theme_color_primary_interactive),
-    --sds_theme_button_primary_interactive_border:
-      map-get($dark-definitions, --sds_theme_color_primary_interactive),
-    --sds_theme_button_primary_interactive_text:
-      map-get($dark-definitions, --sds_theme_button_primary_text),
-    --sds_theme_button_primary_interactive_icon:
-      map-get($dark-definitions, --sds_theme_button_primary_icon),
-    --sds_theme_button_secondary_background:
-      map-get($dark-definitions, --sds_theme_button_background),
-    --sds_theme_button_secondary_border:
-      map-get($dark-definitions, --sds_theme_button_border),
-    --sds_theme_button_secondary_text:
-      map-get($dark-definitions, --sds_theme_color_primary_interactive),
-    --sds_theme_button_secondary_icon:
-      map-get($dark-definitions, --sds_theme_color_primary),
-    --sds_theme_button_secondary_interactive_background:
-      map-get(
-        $dark-definitions,
-        --sds_theme_button_primary_interactive_background
-      ),
-    --sds_theme_button_secondary_interactive_border:
-      map-get($dark-definitions, --sds_theme_button_primary_interactive_border),
-    --sds_theme_button_secondary_interactive_text:
-      map-get($dark-definitions, --sds_theme_button_primary_interactive_text),
-    --sds_theme_button_secondary_interactive_icon:
-      map-get($dark-definitions, --sds_theme_button_primary_interactive_icon),
-    --sds_theme_button_ghost_text:
-      map-get($dark-definitions, --sds_theme_button_text),
-    --sds_theme_button_ghost_icon:
-      map-get($dark-definitions, --sds_theme_button_icon),
-    --sds_theme_button_ghost_interactive_background:
-      map-get($dark-definitions, --sds_theme_color_neutral_tint_2),
-    --sds_theme_button_ghost_interactive_text:
-      map-get($dark-definitions, --sds_theme_button_ghost_text),
-    --sds_theme_button_ghost_interactive_icon:
-      map-get($dark-definitions, --sds_theme_button_interactive_icon),
-    --sds_theme_button_danger_background:
-      map-get($dark-definitions, --sds_theme_color_danger),
-    --sds_theme_button_danger_border:
-      map-get($dark-definitions, --sds_theme_color_danger_interactive),
-    --sds_theme_button_danger_text:
-      map-get($dark-definitions, --sds_theme_text_contrast),
-    --sds_theme_button_danger_icon:
-      map-get($dark-definitions, --sds_theme_icon_dark),
-    --sds_theme_button_danger_interactive_background:
-      map-get($dark-definitions, --sds_theme_color_danger_interactive),
-    --sds_theme_button_danger_interactive_border:
-      map-get($dark-definitions, --sds_theme_color_danger_interactive),
-    --sds_theme_button_danger_interactive_text:
-      map-get($dark-definitions, --sds_theme_button_danger_text),
-    --sds_theme_button_danger_interactive_icon:
-      map-get($dark-definitions, --sds_theme_button_danger_icon),
-    --sds_theme_button_danger_alt_background:
-      map-get($dark-definitions, --sds_theme_button_background),
-    --sds_theme_button_danger_alt_border:
-      map-get($dark-definitions, --sds_theme_button_border),
-    --sds_theme_button_danger_alt_text:
-      map-get($dark-definitions, --sds_theme_color_danger_interactive),
-    --sds_theme_button_danger_alt_icon:
-      map-get($dark-definitions, --sds_theme_color_danger),
-    --sds_theme_button_danger_alt_interactive_background:
-      map-get(
-        $dark-definitions,
-        --sds_theme_button_danger_interactive_background
-      ),
-    --sds_theme_button_danger_alt_interactive_border:
-      map-get($dark-definitions, --sds_theme_button_danger_interactive_border),
-    --sds_theme_button_danger_alt_interactive_text:
-      map-get($dark-definitions, --sds_theme_button_danger_interactive_text),
-    --sds_theme_button_danger_alt_interactive_icon:
-      map-get($dark-definitions, --sds_theme_button_danger_interactive_icon),
+    --button_interactive_background: dark-get(--background_low),
+    --button_interactive_text: dark-get(--button_text),
+    --button_primary_background: dark-get(--color_primary),
+    --button_primary_border: dark-get(--color_primary),
+    --button_secondary_background: dark-get(--button_background),
+    --button_secondary_border: dark-get(--button_border),
+    --button_secondary_text: dark-get(--color_primary_interactive),
+    --button_secondary_icon: dark-get(--color_primary),
+    --button_secondary_interactive_background:
+      dark-get(--button_primary_interactive_background),
+    --button_secondary_interactive_border:
+      dark-get(--button_primary_interactive_border),
+    --button_secondary_interactive_text:
+      dark-get(--button_primary_interactive_text),
+    --button_secondary_interactive_icon:
+      dark-get(--button_primary_interactive_icon),
+    --button_ghost_icon: dark-get(--button_icon),
+    --button_ghost_interactive_background: dark-get(--color_neutral_tint_2),
+    --button_ghost_interactive_text: dark-get(--button_ghost_text),
+    --button_ghost_interactive_icon: dark-get(--button_interactive_icon),
+    --button_danger_background: dark-get(--color_danger),
+    --button_danger_border: dark-get(--color_danger_interactive),
+    --button_danger_alt_background: dark-get(--button_background),
+    --button_danger_alt_border: dark-get(--button_border),
+    --button_danger_alt_text: dark-get(--color_danger_interactive),
+    --button_danger_alt_icon: dark-get(--color_danger),
+    --button_danger_alt_interactive_background:
+      dark-get(--button_danger_interactive_background),
+    --button_danger_alt_interactive_border:
+      dark-get(--button_danger_interactive_border),
+    --button_danger_alt_interactive_text:
+      dark-get(--button_danger_interactive_text),
+    --button_danger_alt_interactive_icon:
+      dark-get(--button_danger_interactive_icon),
     // ------------------------------
     // Controls
     // ------------------------------
-    --sds_theme_control_background:
-      map-get($dark-definitions, --sds_theme_background_high),
-    --sds_theme_control_border: map-get($dark-definitions, --sds_theme_border),
-    --sds_theme_control_text: map-get($dark-definitions, --sds_theme_text),
-    --sds_theme_control_icon: map-get($dark-definitions, --sds_theme_icon_muted),
-    --sds_theme_control_placeholder:
-      map-get($dark-definitions, --sds_theme_text_muted),
-    --sds_theme_control_hover_background:
-      map-get($dark-definitions, --sds_theme_control_background),
-    --sds_theme_control_focus_background:
-      map-get($dark-definitions, --sds_theme_background_low),
-    --sds_theme_control_focus_border:
-      map-get($dark-definitions, --sds_theme_control_hover_border),
-    --sds_theme_control_disabled_background:
-      map-get($dark-definitions, --sds_theme_control_background),
-    --sds_theme_control_disabled_border:
-      map-get($dark-definitions, --sds_theme_control_border),
-    --sds_theme_control_disabled_text:
-      map-get($dark-definitions, --sds_theme_control_text),
-    --sds_theme_control_disabled_icon:
-      map-get($dark-definitions, --sds_theme_control_icon),
-    --sds_theme_control_disabled_placeholder:
-      map-get($dark-definitions, --sds_theme_control_placeholder),
-    --sds_theme_control_error_background:
-      map-get($dark-definitions, --sds_theme_color_danger_tint_1),
-    --sds_theme_control_error_border:
-      map-get($dark-definitions, --sds_theme_color_danger),
-    --sds_theme_control_error_text:
-      map-get($dark-definitions, --sds_theme_color_danger_interactive),
-    --sds_theme_control_error_icon:
-      map-get($dark-definitions, --sds_theme_color_danger),
+    --control_hover_background: dark-get(--control_background),
+    --control_focus_background: dark-get(--background_low),
+    --control_focus_border: dark-get(--control_hover_border),
+    --control_disabled_background: dark-get(--control_background),
+    --control_disabled_border: dark-get(--control_border),
+    --control_disabled_text: dark-get(--control_text),
+    --control_disabled_icon: dark-get(--control_icon),
+    --control_disabled_placeholder: dark-get(--control_placeholder),
+    --control_error_background: dark-get(--color_danger_tint_1),
+    --control_error_border: dark-get(--color_danger),
+    --control_error_text: dark-get(--color_danger_interactive),
+    --control_error_icon: dark-get(--color_danger),
     // ------------------------------
     // Global UI
     // ------------------------------
-    --sds_theme_focus_highlight:
-      map-get($dark-definitions, --sds_theme_color_primary),
-    // --sds_theme_focus_shadow: 0 0 0 2px map-get($dark-definitions, --sds_theme_background),
-    --sds_theme_focus_shadow: #{0 0 0 2px
-      map-get($dark-definitions, --sds_theme_background),
-    0 0 0 4px map-get($dark-definitions, --sds_theme_focus_highlight)}
+    --focus_shadow: #{0 0 2px dark-get(--background),
+    0 0 4px dark-get(--focus_highlight)}
   )
 );

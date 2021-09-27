@@ -9,8 +9,8 @@ const spacingMap = [4, 8, 12, 16, 24, 32, 40, 64, '64-2'];
 
 const getTheme = (themeMode = 'light') => {
   return Object.keys(themeColors).reduce((themeValues, tKey) => {
-    if (tKey.startsWith(`sds_theme_${themeMode}_`)) {
-      let trimmedKey = tKey.replace(`sds_theme_${themeMode}_`, '');
+    if (tKey.startsWith(`sds_theme_${themeMode}`)) {
+      let trimmedKey = tKey.replace(`sds_theme_${themeMode}`, '');
       return {
         ...themeValues,
         [trimmedKey]: themeColors[tKey],
@@ -156,15 +156,20 @@ export default function App() {
 
         <View
           style={[
-            {
-              backgroundColor: theme['backgroundLight'],
-              borderColor: theme['borderDark'],
-            },
             Sdsstyles['spacing-40'],
             themeColors[`sds-${themeMode}-example`],
+            {
+              backgroundColor: theme['--background'],
+              borderColor: theme['--border'],
+            },
           ]}
         >
-          <Text style={{ color: theme['textDark'] }}>
+          <Text
+            style={[
+              // themeColors[`sds-${themeMode}-example`],
+              { color: theme['--color_primary'] },
+            ]}
+          >
             Hey I'm in {themeMode} mode!
           </Text>
         </View>
